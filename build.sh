@@ -3,7 +3,7 @@
 JOB_NAME=${JOB_NAME:-"k8stest"}
 BUILD_NUMBER=${BUILD_NUMBER:-1}
 
-REGISTRY_URL=${REGISTRY_URL:-"local.registry.com/liaotao/"}
+REGISTRY_URL=${REGISTRY_URL:-"http://10.59.128.121:5000/liaotao"}
 
 #docker build
 echo execute : docker build -t app-${JOB_NAME}:${BUILD_NUMBER} .
@@ -18,4 +18,4 @@ echo execute : docker push ${REGISTRY_URL}app-${JOB_NAME}:${BUILD_NUMBER}
 docker push ${REGISTRY_URL}app-${JOB_NAME}:${BUILD_NUMBER}
 
 #Update existing container image(s) of resources
-/usr/local/bin/kubectl set image deployment/k8stest-deployment k8stest=liaotao/app-${JOB_NAME}:${BUILD_NUMBER} --namespace=ci --kubeconfig=/usr/local/bin/config
+#/usr/local/bin/kubectl set image deployment/k8stest-deployment k8stest=liaotao/app-${JOB_NAME}:${BUILD_NUMBER} --namespace=ci --kubeconfig=/usr/local/bin/config
