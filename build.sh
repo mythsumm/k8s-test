@@ -18,4 +18,4 @@ echo execute : docker push ${REGISTRY_URL}app-${JOB_NAME}:${BUILD_NUMBER}
 docker push ${REGISTRY_URL}app-${JOB_NAME}:${BUILD_NUMBER}
 
 #Update existing container image(s) of resources
-/usr/local/bin/kubectl set image deployment/k8stest k8stest=liaotao/app-${JOB_NAME}:${BUILD_NUMBER} --namespace=default --kubeconfig=/Users/ethanliao/.kube/config
+/usr/local/bin/kubectl set image deployment/k8stest k8stest=${REGISTRY_URL}app-${JOB_NAME}:${BUILD_NUMBER} --namespace=default --kubeconfig=/Users/ethanliao/.kube/config
