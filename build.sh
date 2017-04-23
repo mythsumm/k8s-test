@@ -3,7 +3,7 @@
 JOB_NAME=${JOB_NAME:-"k8stest"}
 BUILD_NUMBER=${BUILD_NUMBER:-1}
 
-REGISTRY_URL=${REGISTRY_URL:-"http://127.0.0.1:5000/"}
+REGISTRY_URL=${REGISTRY_URL:-"127.0.0.1:5000/liaotao/"}
 
 #docker build
 echo execute : docker build -t app-${JOB_NAME}:${BUILD_NUMBER} .
